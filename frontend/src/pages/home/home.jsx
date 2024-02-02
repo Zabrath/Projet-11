@@ -20,7 +20,6 @@ function Home() {
       <section class="features">
         <h2 class="sr-only">Features</h2>
         <HomeItems
-          key={"ldzjk565"}
           title={"You are our #1 priority"}
           logo={iconChat}
           description={
@@ -28,7 +27,6 @@ function Home() {
           }
         />
         <HomeItems
-          key={"dfdfdhj1889"}
           title={"More savings means higher rates"}
           logo={iconMoney}
           description={
@@ -36,7 +34,6 @@ function Home() {
           }
         />
         <HomeItems
-          key={"zefsd2548"}
           title={"Security you can trust"}
           logo={iconSecurity}
           description={
