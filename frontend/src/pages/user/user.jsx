@@ -1,12 +1,40 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "./user.scss";
 import ViewTransaction from "../../components/viewTransaction/viewTransaction";
+import { useNavigate } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { getUserInfos } from "../../redux/reducers/asyncThunk";
+import { isEmpty } from "../../components/UTILS/isEmpty";
+import UserForm from "../../components/userForm/userForm";
 
 function User() {
+  const token = useSelector((state) => state.authentication.token);
+
+
+  const [isOpen, setIsOpen] = useState(true);
+
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    if (!isEmpty(token)){
+      navigate("/user")
+      dispatch(getUserInfos(token))
+    }
+  }, []);
+
+function toggleForm() {
+  setIsOpen((prevIsOpen) => !prevIsOpen)
+
+}
+
   return (
     <main class="main bg-dark">
       <div class="header">
         <h1>Welcome back<br />Tony Jarvis!</h1>
+        <button onClick={toggleForm}>Edit</button>
+      <UserForm element={isOpen}/>
+
       </div>
       <h2 class="sr-only">Accounts</h2>
       <ViewTransaction

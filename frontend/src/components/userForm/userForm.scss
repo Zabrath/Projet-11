@@ -1,0 +1,28 @@
+.toggle-close {
+  display: none;
+}
+.toggle-form{
+    color: black;
+}
+
+
+.userForm__firstName {
+  pointer-events: none;
+}
+
+.userForm__lastName {
+  pointer-events: none;
+}
+
+.userForm{
+    background-color: white;
+    &__content{
+        & input {
+            background-color: white;
+        &.lockForm {
+            background-color:rgba(0, 0, 0, 0.08);
+        }        
+        }
+        
+    }
+}

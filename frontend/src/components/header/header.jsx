@@ -5,16 +5,15 @@ import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { isEmpty } from "../UTILS/isEmpty";
 import { logout } from "../../redux/reducers/authenticationSlice";
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faUserCircle } from '@fortawesome/free-solid-svg-icons';
-
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faUserCircle } from "@fortawesome/free-solid-svg-icons";
 
 function Header() {
   const dispatch = useDispatch();
   const token = useSelector(
     (state) => state.authentication.token || localStorage.getItem("token")
   );
-  console.log(token);
+  const dataUser = useSelector((state) => state.userInfos.infos);
 
   function logOut() {
     dispatch(logout(token));
@@ -37,10 +36,17 @@ function Header() {
             Sign In
           </Link>
         ) : (
-          <Link to="/" className="main-nav-item" onClick={logOut}>
-            <FontAwesomeIcon icon={faUserCircle} />
-            logout
-          </Link>
+          <>
+            <Link to="/user" className="main-nav-item">
+              <FontAwesomeIcon icon={faUserCircle} />
+              {dataUser?.userName}
+            </Link>
+
+            <Link to="/" className="main-nav-item" onClick={logOut}>
+              <FontAwesomeIcon icon={faUserCircle} />
+              logout
+            </Link>
+          </>
         )}
       </div>
     </nav>
