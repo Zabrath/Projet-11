@@ -5,24 +5,24 @@ import rootReducer from "./rootReducer";
 
 // Configuration de la persistance avec Redux Persist
 const persistSettings = {
-  key: "root", // Clé pour identifier le store persisté dans le stockage
-  storage, // Utilisation du stockage local pour sauvegarder les données
+  key: "root", 
+  storage, 
 };
 
-// Création du reducer persisté en utilisant Redux Persist
+// Création du reducer persistant en utilisant Redux Persist
 
 const persistReducers = persistReducer(persistSettings, rootReducer);
 
 // Configuration du store Redux avec Redux Toolkit
 
 export const store = configureStore({
-  reducer: persistReducers, // Utilisation du reducer persisté
+  reducer: persistReducers, // Utilisation du reducer persistant
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({
       serializableCheck: false, // Désactivation de la vérification de sérialisation pour Redux Toolkit
     }),
-  devTools: true, // Activation des outils de développement Redux pour navigateur
+  devTools: true, // Activation des outils de développement Redux pour navigateur (passage en false après prod)
 });
 
-// Création du persistor qui permet de persister le store Redux
+
 export const persistor = persistStore(store);

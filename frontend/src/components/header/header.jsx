@@ -9,15 +9,16 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUserCircle } from "@fortawesome/free-solid-svg-icons";
 
 function Header() {
-  const dispatch = useDispatch();
-  const token = useSelector(
-    (state) => state.authentication.token || localStorage.getItem("token")
+  const dispatch = useDispatch(); // Initialisation de la fonction dispatch pour envoyer des actions à Redux
+  const token = useSelector( // Utilisation de useSelector pour accéder au state du Redux store
+    (state) => state.authentication.token || localStorage.getItem("token") // Sélection du token d'authentification depuis le state ou depuis le stockage local
   );
-  const dataUser = useSelector((state) => state.userInfos.infos);
+  const dataUser = useSelector((state) => state.userInfos.infos); // Sélection des informations utilisateur depuis le state du Redux store
 
-  function logOut() {
-    dispatch(logout(token));
+  function logOut() { // Fonction pour déconnecter l'utilisateur
+    dispatch(logout(token)); // Appel de l'action logout avec le token comme paramètre
   }
+
 
   return (
     <nav className="main-nav">

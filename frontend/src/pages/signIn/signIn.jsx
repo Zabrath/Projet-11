@@ -6,24 +6,22 @@ import { useNavigate } from "react-router-dom";
 import { isEmpty } from "../../components/UTILS/isEmpty";
 
 function SignIn() {
-  const signInForm = useRef();
+  const signInForm = useRef(); // Création d'une référence pour le formulaire
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  const submitForm = async (e) => {
+  const submitForm = async (e) => { // Fonction pour gérer la soumission du formulaire
     e.preventDefault();
-    const data = {
-      email: signInForm.current[0].value,
-      password: signInForm.current[1].value,
+    const data = { // Données du formulaire de connexion
+      email: signInForm.current[0].value, // Valeur de l'email
+      password: signInForm.current[1].value, // Valeur du mot de passe
     };
-    console.log(data);
-
-    await dispatch(authentication(data)).then((response) => {
-      const token = response.payload?.body.token;
-      if (!isEmpty(token)) {
-        navigate("/user");
+    await dispatch(authentication(data)).then((response) => { // Appel de l'action authentication avec les données comme paramètre
+      const token = response.payload?.body.token; // Récupération du token d'authentification depuis la réponse
+      if (!isEmpty(token)) { // Vérifie si le token n'est pas vide
+        navigate("/user"); // Redirige vers la page utilisateur
       }
-      signInForm.current.reset();
+      signInForm.current.reset(); // Réinitialise le formulaire après la soumission
     });
   };
 

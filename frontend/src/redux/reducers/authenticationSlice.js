@@ -1,6 +1,8 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { authentication } from './asyncThunk';
 
+// Permet de gérer le token utilisateur
+
 const authSlice = createSlice({
   name: 'authentication',
   initialState: {
@@ -10,6 +12,7 @@ const authSlice = createSlice({
     error: null,
   },
   reducers: {
+    // Permet de gérer la déconnexion utilisateur
     logout: (state) => {
         state.token = null;
         state.user = null;

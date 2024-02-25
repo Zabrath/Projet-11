@@ -7,31 +7,29 @@ import { getUserInfos } from "../../redux/reducers/asyncThunk";
 import { isEmpty } from "../../components/UTILS/isEmpty";
 import UserForm from "../../components/userForm/userForm";
 
-function User() {
-  const token = useSelector((state) => state.authentication.token);
+function User() { // Définition du composant User
+  const token = useSelector((state) => state.authentication.token); // Sélection du token d'authentification depuis le state du Redux store
 
+  const [isOpen, setIsOpen] = useState(true); // État local pour contrôler l'affichage du formulaire de modification d'utilisateur
 
-  const [isOpen, setIsOpen] = useState(true);
-
-  const navigate = useNavigate();
+  const navigate = useNavigate(); 
   const dispatch = useDispatch();
 
-  useEffect(() => {
-    if (!isEmpty(token)){
-      navigate("/user")
-      dispatch(getUserInfos(token))
+  useEffect(() => { // Effet secondaire pour charger les informations utilisateur lors du montage du composant
+    if (!isEmpty(token)){ // Vérifie si le token n'est pas vide
+      navigate("/user"); // Redirige vers la page utilisateur
+      dispatch(getUserInfos(token)); // Appel de l'action getUserInfos pour récupérer les informations utilisateur
     }
-  }, []);
+  }, []); // Tableau de dépendances vide pour exécuter l'effet une seule fois après le montage du composant (évite un bug)
 
-function toggleForm() {
-  setIsOpen((prevIsOpen) => !prevIsOpen)
-
-}
+  function toggleForm() { // Fonction pour basculer l'affichage du formulaire de modification d'utilisateur
+    setIsOpen((prevIsOpen) => !prevIsOpen); // Inverse la valeur de isOpen
+  }
 
   return (
     <main class="main bg-dark">
       <div class="header">
-        <h1>Welcome back<br />Tony Jarvis!</h1>
+        <h1>Welcome back<br/>Tony Jarvis!</h1>
         <button className="edit_button" onClick={toggleForm}>Edit</button>
       <UserForm element={isOpen}/>
 

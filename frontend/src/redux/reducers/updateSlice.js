@@ -1,6 +1,8 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { putUser } from './asyncThunk';
 
+// Permet de modifier les informations utilisateur (Pour notre besoin nous modifions le nom d'utilisateur)
+
 const updateUserSlice = createSlice({
   name: 'updateUser',
   initialState: {

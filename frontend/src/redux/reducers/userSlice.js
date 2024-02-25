@@ -1,6 +1,8 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { getUserInfos } from "./asyncThunk";
 
+// SLice permet de gérer les informations utilisateur
+
 const userSlice = createSlice({
   name: "userInfos",
   initialState: {
