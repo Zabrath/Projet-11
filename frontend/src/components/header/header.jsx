@@ -32,7 +32,7 @@ function Header() {
       <div>
         {isEmpty(token) ? (
           <Link className="main-nav-item" to="/signIn">
-            <FontAwesomeIcon icon={faUserCircle} />
+            <FontAwesomeIcon className="main-nav-icone" icon={faUserCircle} />
             Sign In
           </Link>
         ) : (

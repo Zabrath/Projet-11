@@ -15,14 +15,33 @@
 }
 
 .userForm{
+    padding-top: 1px;
     background-color: white;
+    border-radius: 10px;
+    width: 50%;
+    margin: auto;
     &__content{
         & input {
             background-color: white;
+            margin-bottom: 15px;
         &.lockForm {
-            background-color:rgba(0, 0, 0, 0.08);
+            background-color:rgba(0, 0, 0, 0.7);
         }        
         }
         
     }
+}
+
+.edit-button {
+  display: block;
+  width: 100%;
+  padding: 8px;
+  font-size: 1.1rem;
+  font-weight: bold;
+  margin-top: 1rem;
+  border-color: #00bc77;
+  background-color: #00bc77;
+  color: #fff;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
 }

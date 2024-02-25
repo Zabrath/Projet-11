@@ -24,12 +24,11 @@ function UserForm(isOpen) {
 
   return (
     <div className={`toggle-form ${isOpen.element ? "toggle-close" : ""}`}>
-
       <form ref={editForm} onSubmit={clickOnSubmit} className="userForm">
         <h2>Edit User Info</h2>
         <div className="userForm__content">
           <div className="userForm__userName">
-            <label htmlFor="userName">User Name :</label>
+            <label htmlFor="userName">User Name : </label>
             <input
               type="text"
               id="userName"
@@ -37,7 +36,7 @@ function UserForm(isOpen) {
             />
           </div>
           <div className="userForm__firstName">
-            <label htmlFor="firstName">First Name :</label>
+            <label htmlFor="firstName">First Name : </label>
             <input
               defaultValue={informationsUtilisateur?.firstName}
               type="text"
@@ -47,7 +46,7 @@ function UserForm(isOpen) {
             />
           </div>
           <div className="userForm__lastName">
-            <label htmlFor="lastName">Last Name :</label>
+            <label htmlFor="lastName">Last Name : </label>
             <input
               defaultValue={informationsUtilisateur?.lastName}
               type="text"
@@ -57,7 +56,7 @@ function UserForm(isOpen) {
             />
           </div>
           <div>
-            <button>Submit</button>
+            <button className="edit-button">Submit</button>
           </div>
         </div>
       </form>

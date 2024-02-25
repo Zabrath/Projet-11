@@ -32,7 +32,7 @@ function toggleForm() {
     <main class="main bg-dark">
       <div class="header">
         <h1>Welcome back<br />Tony Jarvis!</h1>
-        <button onClick={toggleForm}>Edit</button>
+        <button className="edit_button" onClick={toggleForm}>Edit</button>
       <UserForm element={isOpen}/>
 
       </div>
